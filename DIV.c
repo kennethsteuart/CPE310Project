@@ -52,8 +52,8 @@ void div_reg_bin(void) {
 	uint32_t Rt = getBits(20, 5);
 
 	setOp("DIV");
-	setParam(1, REGISTER, Rs);
-	setParam(2, REGISTER, Rt);
+	setParam(1, REGISTER, Rs); //BIG FIX - changed 2 to 1 so Rs is the first parameter in the instruction
+	setParam(2, REGISTER, Rt); //BUG FIX - changed 1 to 2 so Rt is the second parameter in the instruction
 
 	state = COMPLETE_DECODE;
 }
