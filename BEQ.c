@@ -68,11 +68,11 @@ void beq_immd_assm(void) {
 	// Set the opcode
 	setBits_str(31, "000100");
 
-	// set Rt
-	setBits_num(20, PARAM1.value, 5);
-
 	// set Rs
-	setBits_num(25, PARAM2.value, 5);
+	setBits_num(25, PARAM1.value, 5); //BUG FIX - paramter 1 is supposed to be Rs and the changed the start bits from 20 to 25 
+
+	// set Rt
+	setBits_num(20, PARAM2.value, 5); //BUG FIX - paramter 2 is supposed to be Rt and the changed the start bits from 25 to 20
 
 	// set offset
 	setBits_num(15, PARAM3.value, 16);
