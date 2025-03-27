@@ -31,12 +31,12 @@ void mfhi_reg_assm(void) {
 	Putting the binary together
 	*/
 	// Set the opcode
-	setBits_str(31, "100000");
+	setBits_str(31, "000000");
 	// set rd
 	setBits_num(15, PARAM1.value, 5);
 
 	// Set the funct 
-	setBits_str(5, "010000"); //BUG FIX - change opcode from 010010 to 010000
+	setBits_str(5, "010010"); 
 	// set 25-16 as 0s 
 	setBits_str(21, "000000");
 	setBits_str(25, "000000");
