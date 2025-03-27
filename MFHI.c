@@ -52,7 +52,9 @@ void mfhi_reg_bin(void) {
 	// check_bits(start_bit, bit_string) returns 0 if the bit_string matches
 	//  any x will be skipped
 	// If the manual shows (0), then the value of that bit doesnt matter
-	if (checkBits(31, "000000") != 0 || checkBits(5, "010010") != 0 || checkBits(25, "0000000000") != 0 || checkBits(10, "00000") != 0) {
+
+	// BUG FIX - changed 010010 to 010000 in checkbits function starting at bit 5
+	if (checkBits(31, "000000") != 0 || checkBits(5, "010000") != 0 || checkBits(25, "0000000000") != 0 || checkBits(10, "00000") != 0) {
 		state = WRONG_COMMAND;
 		return;
 	}
