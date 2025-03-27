@@ -33,8 +33,8 @@ void div_reg_assm(void) {
 
 	// create binary
 	setBits_str(31, "000000");
-	setBits_num(20, PARAM1.value, 5);
-	setBits_num(25, PARAM2.value, 5);
+	setBits_num(25, PARAM1.value, 5); //BUG FIX - changed 20 to 25 so Rs is the first paramter in the machine code
+	setBits_num(20, PARAM2.value, 5); //BUG FIX - changed 25 to 20 so Rt is the second parameter in the machine code
 	setBits_str(5, "011010");
 	setBits_num(15, 0, 10);
 	
