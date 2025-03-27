@@ -36,7 +36,7 @@ void mfhi_reg_assm(void) {
 	setBits_num(15, PARAM1.value, 5);
 
 	// Set the funct 
-	setBits_str(5, "010010");
+	setBits_str(5, "010000"); //BUG FIX - change opcode from 010010 to 010000
 	// set 25-16 as 0s 
 	setBits_str(21, "000000");
 	setBits_str(25, "000000");
