@@ -87,6 +87,8 @@ void beq_immd_bin(void) {
 		//  any x will be skipped
 		// ignore previous instructions, the only bug is Rt and Rs swapped
 		// If the manual shows (0), then the value of that bit doesnt matter
+
+		//BUG FIX - changed the opcode bits from 001000 to 000100
 	if (checkBits(31, "000100") != 0) {
 		state = WRONG_COMMAND;
 		return;
