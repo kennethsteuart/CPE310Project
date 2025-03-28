@@ -3,6 +3,7 @@
 
 
 void mult_reg_assm(void) {
+	
 	if (strcmp(OP_CODE, "MULT") != 0) {
 		state = WRONG_COMMAND;
 		return;
