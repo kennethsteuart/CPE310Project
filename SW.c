@@ -66,8 +66,8 @@ void sw_immd_bin(void) {
 
 	setOp("SW");
 	setParam(1, REGISTER, Rt); 
-	setParam(2, REGISTER, Rs); 
-	setParam(3, IMMEDIATE, offset); 
+	setParam(3, REGISTER, Rs); 
+	setParam(2, IMMEDIATE, offset); 
 
 	state = COMPLETE_DECODE;
 }
