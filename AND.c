@@ -112,6 +112,7 @@ void and_reg_bin(void) {
 	setParam(3, REGISTER, Rt); //second source register operand
 
 
+	
 	// tell the system the decoding is done
 	state = COMPLETE_DECODE;
 }
