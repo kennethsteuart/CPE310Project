@@ -1,7 +1,7 @@
 #include "Instruction.h"
 
 void andi_immd_assm(void) {
-
+	// Check for "ANDI"
 	if (strcmp(OP_CODE, "ANDI") != 0) {
 		state = WRONG_COMMAND;
 		return;
@@ -35,15 +35,16 @@ void andi_immd_assm(void) {
 	}
 
 	// combine binary
-	setBits_str(31, "001100");
-	setBits_num(20, PARAM1.value, 5);
-	setBits_num(25, PARAM2.value, 5);
-	setBits_num(15, PARAM3.value, 16);
+	setBits_str(31, "001100"); // Set opcode
+	setBits_num(20, PARAM1.value, 5); //Set destination
+	setBits_num(25, PARAM2.value, 5); // Set source
+	setBits_num(15, PARAM3.value, 16); // Set immediate
 
 	state = COMPLETE_ENCODE;
 }
 
 void andi_immd_bin(void) {
+	//Verify opcode
 	if (checkBits(31, "001100") != 0 ) {
 		state = WRONG_COMMAND;
 		return;

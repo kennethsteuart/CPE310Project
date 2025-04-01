@@ -38,6 +38,7 @@ void mult_reg_assm(void) {
 }
 
 void mult_reg_bin(void) {
+	//Verify opcode
 	if (checkBits(31, "000000") != 0 || checkBits(5, "011000") != 0) {
 		state = WRONG_COMMAND;
 		return;

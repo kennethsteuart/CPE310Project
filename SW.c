@@ -12,6 +12,7 @@ void sw_immd_assm(void) {
 		state = WRONG_COMMAND;
 		return;
 	}
+	//Check parameter
 	if (PARAM1.type != REGISTER) {
 		state = MISSING_REG;
 		return;
@@ -25,12 +26,12 @@ void sw_immd_assm(void) {
 		state = MISSING_REG;
 		return;
 	}
-
+	//Check register
 	if (PARAM1.value > 31) {
 		state = INVALID_REG;
 		return;
 	}
-
+	//Check immediate
 	if (PARAM2.value > 0xFFFF) {
 		state = INVALID_IMMED;
 		return;
@@ -44,11 +45,11 @@ void sw_immd_assm(void) {
 	// setBits_num(15, PARAM1.value, 5);
 	// setBits_num(25, PARAM2.value, 16);
 	// setBits_num(20, PARAM3.value, 5);
-
-	setBits_str(31, "101011");
-	setBits_num(20, PARAM1.value, 5);
-	setBits_num(15, PARAM2.value, 16);
-	setBits_num(25, PARAM3.value, 5);
+	//Encode instruction
+	setBits_str(31, "101011"); //Opcode for SW
+	setBits_num(20, PARAM1.value, 5); //Source
+	setBits_num(15, PARAM2.value, 16); // Immediate offset
+	setBits_num(25, PARAM3.value, 5);//Base register
 
 	state = COMPLETE_ENCODE;
 }
@@ -59,7 +60,7 @@ void sw_immd_bin(void) {
 		state = WRONG_COMMAND;
 		return;
 	}
-
+	//Extract register values and immediate offset
 	uint32_t Rs = getBits(25, 5);
 	uint32_t Rt = getBits(20, 5);
 	uint32_t offset = getBits(15, 16);

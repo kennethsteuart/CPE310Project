@@ -1,13 +1,14 @@
 #include "Instruction.h"
 
 void lw_immd_assm(void) {
+	//Check opcode
 	if (strcmp(OP_CODE, "LW") != 0) {
 
 		state = WRONG_COMMAND;
 		return;
 	}
 	
-	
+	//Validate register
 	if (PARAM1.type != REGISTER) {
 		state = MISSING_REG;
 		return;
@@ -57,11 +58,12 @@ void lw_immd_bin(void) {
 		state = WRONG_COMMAND;
 		return;
 	}
-
+	//Extract register
 	uint32_t Rs = getBits(25, 5);
 	uint32_t Rt = getBits(20, 5);
 	uint32_t imm16 = getBits(15, 16);
-
+	
+	//Set decode operation 
 	setOp("LW");
 	setParam(1, REGISTER, Rt);
 	setParam(3, REGISTER, Rs);
